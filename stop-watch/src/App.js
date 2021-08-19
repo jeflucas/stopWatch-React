@@ -2,9 +2,9 @@ import React from "react";
 import "./App.css";
 
 class App extends React.Component {
-  constructor(props, timmer) {
+  constructor(props, timer) {
     super(props);
-    this.timmer = timmer;
+    this.timer = timer;
     this.state = {
       hour: 0,
       minute: 0,
@@ -14,18 +14,25 @@ class App extends React.Component {
   }
 
   handleStart = () => {
-    this.setState((prevState) => {
-      return {
-        hour: prevState.hour + 1,
-        minute: prevState.minute + 1,
-        second: prevState.second + 1,
-        milisecond: prevState.milisecond + 1,
-      };
-    });
+    this.timer = setInterval(() => {
+      this.setState((prevState) => {
+        return {
+          milisecond: prevState.milisecond + 1,
+        };
+      });
+
+      if (this.state.milisecond === 100) {
+        this.setState((prevState) => {
+          return {
+            second: prevState.second + 1,
+          };
+        });
+      }
+    }, 10);
   };
 
   handleStop = () => {
-    clearInterval(this.timmer);
+    clearInterval(this.timer);
   };
 
   handleReset = () => {
@@ -43,7 +50,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <Timmer time={this.state} />
+        <Timer time={this.state} />
         <Action
           handleStart={this.handleStart}
           handleReset={this.handleReset}
@@ -58,13 +65,11 @@ const Header = () => {
   return <h1>Stopwatch</h1>;
 };
 
-const Timmer = (props) => {
+const Timer = (props) => {
   return (
     <div>
-      <div>{props.time.hour}</div>,
-      <div>{props.time.minute}</div>,
-      <div>{props.time.second}</div>,
-      <div>{props.time.milisecond}</div>
+      <div>{props.time.hour}</div>,<div>{props.time.minute}</div>,
+      <div>{props.time.second}</div>,<div>{props.time.milisecond}</div>
     </div>
   );
 };
