@@ -14,13 +14,20 @@ class App extends React.Component {
   }
 
   handleStart = () => {
-    console.log("Start");
+    this.setState((prevState) => {
+      return {
+        hour: prevState.hour + 1,
+        minute: prevState.minute + 1,
+        second: prevState.second + 1,
+        milisecond: prevState.milisecond + 1,
+      };
+    });
   };
 
   handleStop = () => {
-    clearInterval(this.timmer)
+    clearInterval(this.timmer);
   };
-  
+
   handleReset = () => {
     this.setState(() => {
       return {
