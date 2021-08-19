@@ -43,7 +43,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <Timmer />
+        <Timmer time={this.state} />
         <Action
           handleStart={this.handleStart}
           handleReset={this.handleReset}
@@ -58,10 +58,13 @@ const Header = () => {
   return <h1>Stopwatch</h1>;
 };
 
-const Timmer = () => {
+const Timmer = (props) => {
   return (
     <div>
-      <div>0</div>,<div>0</div>,<div>0</div>,<div>0</div>
+      <div>{props.time.hour}</div>,
+      <div>{props.time.minute}</div>,
+      <div>{props.time.second}</div>,
+      <div>{props.time.milisecond}</div>
     </div>
   );
 };
