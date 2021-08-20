@@ -29,6 +29,24 @@ class App extends React.Component {
           };
         });
       }
+
+      if (this.state.second === 60) {
+        this.setState((prevState) => {
+          return {
+            minute: prevState.minute + 1,
+            second: 0,
+          };
+        });
+      }
+
+      if (this.state.minute === 60) {
+        this.setState((prevState) =>{
+          return {
+            hour: prevState.hour +1,
+            minute: 0
+          }
+        })
+      }
     }, 10);
   };
 
