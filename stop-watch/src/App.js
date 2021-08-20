@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import Header from "./components/Header";
-import 'bulma/css/bulma.min.css'
+import "bulma/css/bulma.min.css";
 
 class App extends React.Component {
   constructor(props, timer) {
@@ -42,12 +42,12 @@ class App extends React.Component {
       }
 
       if (this.state.minute === 60) {
-        this.setState((prevState) =>{
+        this.setState((prevState) => {
           return {
-            hour: prevState.hour +1,
-            minute: 0
-          }
-        })
+            hour: prevState.hour + 1,
+            minute: 0,
+          };
+        });
       }
     }, 10);
   };
@@ -69,14 +69,16 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <Header />
-        <Timer time={this.state} />
-        <Action
-          handleStart={this.handleStart}
-          handleReset={this.handleReset}
-          handleStop={this.handleStop}
-        />
+      <div className="container is-max-desktop is-flex is-justify-content-center">
+        <div class="notification">
+          <Header />
+          <Timer time={this.state} />
+          <Action
+            handleStart={this.handleStart}
+            handleReset={this.handleReset}
+            handleStop={this.handleStop}
+          />
+        </div>
       </div>
     );
   }
@@ -84,21 +86,21 @@ class App extends React.Component {
 
 const Timer = (props) => {
   return (
-    <div>
-      <div>{props.time.hour}</div>,
-      <div>{props.time.minute}</div>,
-      <div>{props.time.second}</div>,
-      <div>{props.time.milisecond}</div>
+    <div class="is-flex is-justify-content-space-evenly is-align-content-center is-align-items-center">
+      <div class="time">{props.time.hour}</div>
+      <div class="time">{props.time.minute}</div>
+      <div class="time">{props.time.second}</div>
+      <div class="time">{props.time.milisecond}</div>
     </div>
   );
 };
 
 const Action = (props) => {
   return (
-    <div>
-      <button onClick={props.handleReset}>Reset</button>
-      <button onClick={props.handleStart}>Start</button>
-      <button onClick={props.handleStop}>Stop</button>
+    <div className="buttons has-addons is-centered">
+      <button class="button is-warning" onClick={props.handleReset}>Reset</button>
+      <button class="button is-primary" onClick={props.handleStart}>Start</button>
+      <button class="button is-danger" onClick={props.handleStop}>Stop</button>
     </div>
   );
 };
