@@ -25,6 +25,7 @@ class App extends React.Component {
         this.setState((prevState) => {
           return {
             second: prevState.second + 1,
+            milisecond: 0,
           };
         });
       }
