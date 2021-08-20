@@ -86,21 +86,27 @@ class App extends React.Component {
 
 const Timer = (props) => {
   return (
-    <div class="is-flex is-justify-content-space-evenly is-align-content-center is-align-items-center">
-      <div class="time">{props.time.hour}</div>
-      <div class="time">{props.time.minute}</div>
-      <div class="time">{props.time.second}</div>
-      <div class="time">{props.time.milisecond}</div>
+    <div class="is-flex is-justify-content-space-evenly">
+      <div class="time has-text-centered">{props.time.hour}</div>
+      <div class="time has-text-centered">{props.time.minute}</div>
+      <div class="time has-text-centered">{props.time.second}</div>
+      <div class="time has-text-centered">{props.time.milisecond}</div>
     </div>
   );
 };
 
 const Action = (props) => {
   return (
-    <div className="buttons has-addons is-centered">
-      <button class="button is-warning" onClick={props.handleReset}>Reset</button>
-      <button class="button is-primary" onClick={props.handleStart}>Start</button>
-      <button class="button is-danger" onClick={props.handleStop}>Stop</button>
+    <div className="buttons has-addons is-centered pt-4">
+      <button class="button is-warning" onClick={props.handleReset}>
+        Reset
+      </button>
+      <button class="button is-primary" onClick={props.handleStart}>
+        Start
+      </button>
+      <button class="button is-danger" onClick={props.handleStop}>
+        Stop
+      </button>
     </div>
   );
 };

@@ -1,3 +1,9 @@
+.notification{
+    border-radius: 15px;
+}
+
 .time {
     font-family: 'Major Mono Display', monospace;
+    font-size: xx-large;
+    width: 2em;
 }
