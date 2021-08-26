@@ -70,7 +70,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="container is-max-desktop is-flex is-justify-content-center">
-        <div class="notification">
+        <div className="notification" style={{ marginTop: "100px" }}>
           <Header />
           <Timer time={this.state} />
           <Action
@@ -86,11 +86,11 @@ class App extends React.Component {
 
 const Timer = (props) => {
   return (
-    <div class="is-flex is-justify-content-space-evenly">
-      <div class="time has-text-centered">{props.time.hour}</div>
-      <div class="time has-text-centered">{props.time.minute}</div>
-      <div class="time has-text-centered">{props.time.second}</div>
-      <div class="time has-text-centered">{props.time.milisecond}</div>
+    <div className="is-flex is-justify-content-space-evenly">
+      <div className="time has-text-centered">{props.time.hour}</div>
+      <div className="time has-text-centered">{props.time.minute}</div>
+      <div className="time has-text-centered">{props.time.second}</div>
+      <div className="time has-text-centered">{props.time.milisecond}</div>
     </div>
   );
 };
@@ -98,13 +98,13 @@ const Timer = (props) => {
 const Action = (props) => {
   return (
     <div className="buttons has-addons is-centered pt-4">
-      <button class="button is-warning" onClick={props.handleReset}>
+      <button className="button is-warning" onClick={props.handleReset}>
         Reset
       </button>
-      <button class="button is-primary" onClick={props.handleStart}>
+      <button className="button is-primary" onClick={props.handleStart}>
         Start
       </button>
-      <button class="button is-danger" onClick={props.handleStop}>
+      <button className="button is-danger" onClick={props.handleStop}>
         Stop
       </button>
     </div>
